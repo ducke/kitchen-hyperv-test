@@ -1,16 +1,22 @@
 ---
 driver:
-  name: vagrant
+  name: hyperv
+  memory_startup_bytes: 1073741824
+  password: 'vagrant'
+
+transport:
+  name: winrm
+
+verifier:
+  name: pester
 
 provisioner:
-  name: chef_solo
+  name: shell
+  driver:
+    parent_vhd: 'C:\VHD\Ref_W12R2EN_unattend.vhdx'
 
 platforms:
-  - name: ubuntu-12.04
-  - name: centos-6.4
+  - name: windows_2012r2
 
 suites:
   - name: default
-    run_list:
-
-    attributes:
